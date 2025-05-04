@@ -7,7 +7,8 @@ use App\Rules\KeywordsRule;
 use App\Rules\SlugRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
-use Psy\Util\Str;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Str;
 
 class StorePostRequest extends FormRequest
 {
@@ -71,6 +72,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => 'Title',
+            'user_id' => 'User',
             'slug' => 'Slug',
             'body' => 'Body',
             'is_published' => 'Is Published',
