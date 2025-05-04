@@ -33,15 +33,14 @@
       */
      public function apply(Builder $query): Builder
      {
-         $search = '%' . $this->filters['search'] . '%';
 
          return $query->when(isset($this->filters['is_published']),
          fn($q)=> $q->where('is_published' , $this->filters['is_published']))
              ->when(isset($this->filters['search']),
-             fn($q)=>$q->where('title', 'like', $search)
-             ->orWhere('body', 'like', $search))
+             fn($q)=>$q->where('title', 'like', '%'.$this->filters['search'].'%' )
+             ->orWhere('body', 'like','%'.$this->filters['search'].'%')
              ->when(isset($this->filters['tags']), fn($q) =>
-             $q->whereJsonContains('tags', $this->filters['tags']));
+             $q->whereJsonContains('tags', $this->filters['tags'])));
 
      }
  }

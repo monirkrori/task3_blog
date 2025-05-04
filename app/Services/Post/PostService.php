@@ -20,7 +20,7 @@ class PostService
     public function getposts(array $filters = [])
     {
         $query = Post::query();
-        $query = (new PostFilter())->apply($query);
+        $query = (new PostFilter($filters))->apply($query);
         return $query
             ->orderBy($filters['sort_by'] ?? 'created_at', $filters['sort_direction'] ?? 'desc')
             ->paginate($filters['per_page'] ?? 10);

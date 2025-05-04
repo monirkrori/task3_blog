@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 abstract class Controller
 {
 
-    public function responseWitSuccess ($data = [] , $status = 200,$message = '')
+    public function responseWitSuccess ($data = [] , $message = '',$status = 200)
     {
         return response()->json([
             'data' => $data,

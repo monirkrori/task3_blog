@@ -8,7 +8,7 @@
  */
 
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Post;
 
 use App\Rules\FutureDateRule;
 use App\Rules\KeywordsRule;
@@ -39,7 +39,7 @@ class UpdatePostRequest extends FormRequest
                 Rule::unique('posts')->ignore($this->route('post')),
                 new SlugRule,
             ],
-            'body' => 'required|string|min:100|not_regex:/<script\b[^>]*>(.*?)<\/script>/i',
+            'body' => 'sometimes|string|min:100|not_regex:/<script\b[^>]*>(.*?)<\/script>/i',
             'is_published' => 'boolean',
             'publish_date' => ['nullable', 'date', new FutureDateRule],
             'meta_description' => 'sometimes|nullable|string|max:255',
