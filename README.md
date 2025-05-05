@@ -21,7 +21,7 @@ A robust Laravel-based blog API with authentication, post scheduling, and CLI ma
 - PHP 8.2+
 - Laravel 12
 - Composer
-- Database (MySQL/PostgreSQL/SQLite)
+- Database MySQL
 
 ## Installation
 
@@ -65,11 +65,11 @@ A robust Laravel-based blog API with authentication, post scheduling, and CLI ma
 
 | Endpoint          | Method | Description                | Authentication Required |
 |-------------------|--------|----------------------------|-------------------------|
-| `/api/posts/  `   | Get    | Get all posts              | No                      |
+| `/api/posts/`   | Get    | Get all posts              | No                      |
 | `/api/posts`      | POST   | Create post                | Yes                     |
 | `/api/posts/{id}` | Get    | Get specific post          | No                      |
-| `api/posts/{id}   | Put    | Update specific post       | Yes                     |
-| `api/posts/{id}   | Delete | Delete specific post       | Yes                     |
+| `api/posts/{id}`   | Put    | Update specific post       | Yes                     |
+| `api/posts/{id}`  | Delete | Delete specific post       | Yes                     |
 
 **Request Body for create post :
 ```json
