@@ -10,7 +10,7 @@ class FutureDateRule implements Rule
 
    public function passes($attribute, $value)
    {
-       return ($value && strtotime($value) >= time());
+       return ($value && strtotime($value) >= strtotime(now()->format('Y-m-d H:i:00')));
    }
 
     public function message(): string
