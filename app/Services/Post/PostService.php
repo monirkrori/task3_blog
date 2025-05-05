@@ -49,6 +49,7 @@ class PostService
      */
     public function createPost(array $data): Post
     {
+
         try {
             return DB::transaction(function () use ($data) {
                 $data['user_id'] = auth()->id();
